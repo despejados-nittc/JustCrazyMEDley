@@ -1360,6 +1360,11 @@ export class Joho extends Phaser.Scene {
 
     completeStage() {
         this.saveStageRecord();
+        console.log('[ステージクリア]', {
+            学科: '情報工学科',
+            クリアタイム: Number(this.elapsedSeconds.toFixed(1)),
+            単位数: this.runTangyeCount
+        });
         this.saveData.completedCount += 1;
         this.registry.set('saveData', this.saveData);
         return encodeSaveData(this.saveData);
