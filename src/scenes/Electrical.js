@@ -473,7 +473,7 @@ export class Electrical extends Phaser.Scene {
         aoten: '青点... ライフが２減った...',
         report: '理不尽レポートを喰らった',
         enadori: 'カフェインの過剰摂取！寝なさい！',
-        departmentDamage: '感電！交流１００Ⅴを喰らった！',
+        departmentDamage: '感電！体に１Ａの電流が流れた！',
     };
 
     // 画面上部に、ダメージを受けた相手のメッセージを一定時間表示する
