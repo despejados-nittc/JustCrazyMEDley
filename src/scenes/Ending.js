@@ -2,7 +2,7 @@ import { createEmptySaveData, encodeSpell } from '../saveData.js';
 
 const AUTO_RETURN_MS = 60000;
 
-// 終了画面：ふっかつのじゅもんを画面いっぱいに表示し、20秒後かキー入力で最初の画面へ戻る
+// 終了画面：通常終了時のみふっかつのじゅもんを表示し、60秒後かキー入力で最初の画面へ戻る
 export class Ending extends Phaser.Scene {
 
     constructor() {
@@ -13,26 +13,28 @@ export class Ending extends Phaser.Scene {
         this.load.image('logo', 'assets/logo.png');
     }
 
-    create() {
+    create(data = {}) {
         this.cameras.main.setBackgroundColor('#000000');
         this.cameras.main.fadeIn(500, 0, 0, 0);
         const { width, height } = this.scale;
-        const spell = encodeSpell(this.registry.get('saveData') ?? createEmptySaveData());
 
         this.logo = this.add.image(width / 2, 150, 'logo').setOrigin(0.5);
         this.logo.scale = 0.35;
 
-        this.add.text(width / 2, 330, 'ふっかつのじゅもん', {
-            fontSize: '64px',
-            color: '#ffffff'
-        }).setOrigin(0.5);
+        if (!data.finalCleared) {
+            const spell = encodeSpell(this.registry.get('saveData') ?? createEmptySaveData());
+            this.add.text(width / 2, 330, 'ふっかつのじゅもん', {
+                fontSize: '64px',
+                color: '#ffffff'
+            }).setOrigin(0.5);
 
-        // 画面の幅いっぱいに収まるよう、文字サイズを幅から決める
-        const fontSize = Math.floor((width - 120) / spell.length);
-        this.add.text(width / 2, 450, spell, {
-            fontSize: `${fontSize}px`,
-            color: '#ffff66'
-        }).setOrigin(0.5);
+            // 画面の幅いっぱいに収まるよう、文字サイズを幅から決める
+            const fontSize = Math.floor((width - 120) / spell.length);
+            this.add.text(width / 2, 450, spell, {
+                fontSize: `${fontSize}px`,
+                color: '#ffff66'
+            }).setOrigin(0.5);
+        }
 
         this.add.text(width / 2, height - 60, 'キーを押すと最初の画面に戻ります', {
             fontSize: '28px',

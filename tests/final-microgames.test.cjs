@@ -23,7 +23,7 @@ function fixture(save) {
         cameras: { main: object() }, add: { rectangle: object, tileSprite: object, text: object, image: object, graphics: object },
         input: { keyboard }, game: { events: new EventEmitter() }, events: new EventEmitter(),
         registry: { save, get() { return this.save; }, set(key,value) { this.save=value; } },
-        scene: { start: key => { scene.destination=key; } }
+        scene: { start: (key,data) => { scene.destination=key; scene.destinationData=data; } }
     });
     scene.create();
     return { scene, api: context.api, setTime: value => now=value, press: (code,repeat=false) => scene.handleKey({code,repeat}) };
@@ -60,6 +60,7 @@ test('25 rounds complete the thesis directly and save exactly once', () => {
     assert.deepEqual(scene.registry.save.stages,[30,30,30,30,30]);
     scene.completeThesis(); assert.equal(scene.registry.save.completedCount,6);
     press('Space'); assert.equal(scene.destination,'Ending');
+    assert.equal(scene.destinationData.finalCleared,true);
 });
 test('pause preserves time, duplicate blur is harmless, shutdown removes listeners', () => {
     const {scene,press,setTime}=fixture(); press('Space');

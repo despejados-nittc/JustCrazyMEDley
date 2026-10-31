@@ -14,6 +14,8 @@ python -m http.server 8000 --bind 127.0.0.1
 
 Final uses only arrows and Space. Each five-round block visits all five departments; all 25 games appear once. Four failures end the run. Surviving all rounds completes the thesis and saves the completion count once. There is no rhythm finale. Each round has an untimed animated demonstration; Space starts the real timer. Arrow keys support holding in movement games, and wrong puzzle inputs give a hint instead of immediately losing a life. The normal Home entrance still requires 150 credits.
 
+The ending after clearing Final hides both the revival-spell heading and spell. Home's normal exit still displays them, including after a previous Final clear. Both endings retain the logo, keyboard return, and automatic return to Title after 60 seconds.
+
 Final difficulty comes from the sum of the five department records (maximum 40 each), ignoring the separate `totalTangye` counter. At 150 credits the challenge is highest; at 200 it is lowest. Between those totals, timers lengthen, movement slows, timing windows widen, and arrow sequences shorten in steps. The profile is fixed for the visit, including retries and all rounds. Separate demonstration puzzles use the same difficulty settings. Direct scene previews without a save use the hardest settings.
 
 Automated checks cover 2,250 solvable game variants (25 games × 3 difficulties × 30 seeds), balanced decks, wrong answers, timeouts, scene input gates, pause/resume, retries, direct ending routing, held movement, untimed demonstrations, forgiving corrections, and save isolation. Phaser rendering is mocked in Node; use the browser gallery for visual checks.

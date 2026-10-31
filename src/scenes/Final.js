@@ -168,7 +168,7 @@ export class Final extends Phaser.Scene {
             return;
         }
         if (this.mode === 'complete') {
-            if (event.code === 'Space') this.scene.start('Ending');
+            if (event.code === 'Space') this.scene.start('Ending', { finalCleared: true });
             return;
         }
         if (this.mode === 'intro') {
