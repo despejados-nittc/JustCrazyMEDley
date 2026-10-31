@@ -479,7 +479,7 @@ export class Denshi extends Phaser.Scene {
         aoten: '青点... ライフが2減った...',
         report: '理不尽レポートを喰らった',
         enadori: 'カフェインの過剰摂取！寝なさい！',
-        departmentDamage: '過電圧を加えてしまった！コンデンサ爆発！',
+        departmentDamage: '＋と－を間違えた！コンデンサ爆発！',
     };
 
     // 画面上部に、ダメージを受けた相手のメッセージを一定時間表示する
