@@ -1,5 +1,7 @@
 # Final stage checks
 
+All five department stages show a full-credit result screen only when the current run finishes with exactly 40 credits. It displays the same one-decimal clear time as the console log and waits for a fresh Enter or Space press before the existing one-second fade to Home. Previous 40-credit records do not qualify a lower-credit run. Logging and save updates remain unchanged; game over does not show this result screen.
+
 The new-game title option enters a keyboard-only playable Tutorial; Spell continuation still goes directly to Home. Five topics cover movement, collecting credits, red/blue damage and stomps, other hazards, and life recovery/game over. Enter advances after an exercise is completed; R retries it; S or Esc skips to Home at any time (S also works in hosts that reserve Escape). Practice uses Electrical's actual physics/collision/audio routines in a pit-free single-screen arena. Practice credits and completion never update save records.
 
 Run from the project root:

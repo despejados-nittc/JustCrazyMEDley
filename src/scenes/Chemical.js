@@ -2,6 +2,7 @@ import { IS_SCENE_DEBUG, createEmptySaveData, encodeSaveData } from '../saveData
 import { getGroundRespawnX, isPitInputBlocked, lockPitRespawnInput } from './pitRespawn.js';
 import { setupRunningSound } from './runningSound.js';
 import { setupStageBgm } from './stageBgm.js';
+import { returnHomeAfterStageClear } from './stageClearTime.js';
 
 export class Chemical extends Phaser.Scene {
 
@@ -1392,16 +1393,13 @@ export class Chemical extends Phaser.Scene {
         return encodeSaveData(this.saveData);
     }
 
-    // ステージの右端から出て、1秒かけて暗転しHomeへ戻る
+    // フル単ならタイム確認後、それ以外はそのまま暗転しHomeへ戻る
     leaveStage() {
         if (this.isLeaving) {
             return;
         }
         this.isLeaving = true;
         this.completeStage();
-        this.cameras.main.fadeOut(1000, 0, 0, 0);
-        this.cameras.main.once('camerafadeoutcomplete', () => {
-            this.scene.start('Home', { fromStage: true });
-        });
+        returnHomeAfterStageClear(this);
     }
 }
