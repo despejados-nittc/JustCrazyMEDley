@@ -14,15 +14,23 @@ export function returnHomeAfterStageClear(scene) {
     const { width, height } = scene.scale;
     scene.add.rectangle(width / 2, height / 2, width, height, 0x000000)
         .setScrollFactor(0).setDepth(1000);
-    scene.add.text(width / 2, height / 2 - 100, 'フル単達成！', {
+    scene.add.text(width / 2, height / 2 - 200, 'フル単達成！', {
         fontSize: '64px',
         color: '#ffff66'
     }).setOrigin(0.5).setScrollFactor(0).setDepth(1001);
-    scene.add.text(width / 2, height / 2, `クリアタイム：${scene.elapsedSeconds.toFixed(1)}秒`, {
+    scene.add.text(width / 2, height / 2 - 100, `クリアタイム：${scene.elapsedSeconds.toFixed(1)}秒`, {
         fontSize: '48px',
         color: '#ffffff'
     }).setOrigin(0.5).setScrollFactor(0).setDepth(1001);
-    scene.add.text(width / 2, height / 2 + 100, 'Enter / Space：ホームへ戻る', {
+    scene.add.text(width / 2, height / 2, '開発者に伝えるとランキングに載るかも...？', {
+        fontSize: '30px',
+        color: '#ffff66'
+    }).setOrigin(0.5).setScrollFactor(0).setDepth(1001);
+    scene.add.text(width / 2, height / 2 + 50, '（ニックネームと一緒に伝えてね）', {
+        fontSize: '25px',
+        color: '#ffff66'
+    }).setOrigin(0.5).setScrollFactor(0).setDepth(1001);
+    scene.add.text(width / 2, height / 2 + 150, 'Enter / Space：ホームへ戻る', {
         fontSize: '28px',
         color: '#aaaaaa'
     }).setOrigin(0.5).setScrollFactor(0).setDepth(1001);
